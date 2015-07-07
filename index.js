@@ -1,5 +1,5 @@
 "use strict";
 
-var ThumbtackDB = require("./lib/ThumbtackDB.js");
+var ThumbtackDBMS = require("./lib/ThumbtackDBMS.js");
 
-module.exports = ThumbtackDB;
+module.exports = ThumbtackDBMS;

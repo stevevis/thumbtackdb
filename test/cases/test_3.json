@@ -1,0 +1,51 @@
+[
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "set",
+    "args": [ "a", 10 ]
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": 10
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "set",
+    "args": [ "a", 20 ]
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": 20
+  },
+  {
+    "command": "rollback",
+    "args": []
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": 10
+  },
+  {
+    "command": "rollback",
+    "args": []
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": "NULL"
+  },
+  {
+    "command": "rollback",
+    "args": [],
+    "output": "NO TRANSACTION"
+  }
+]

@@ -8,9 +8,8 @@
 "use strict";
 
 var readline = require("readline");
-var ThumbtackDB = require("../lib/ThumbtackDB.js");
+var ThumbtackDB = require("../lib/ThumbtackDBMS.js");
 
-var rl = readline.createInterface(process.stdin, process.stdout);
 var db = new ThumbtackDB();
 
 var COMMANDS = {
@@ -18,9 +17,27 @@ var COMMANDS = {
   "GET": "get",
   "UNSET": "unset",
   "NUMEQUALTO": "numEqualTo",
+  "BEGIN": "begin",
+  "ROLLBACK": "rollback",
   "HELP": "help",
   "END": "end"
 };
+
+function executeCommand(command, args) {
+  var result = db[command].apply(db, args);
+  if (result !== undefined) {
+    console.log(result);
+  }
+}
+
+function printHelp() {
+  console.log("Available commands:");
+  for (var key in COMMANDS) {
+    console.log(key);
+  }
+}
+
+var rl = readline.createInterface(process.stdin, process.stdout);
 
 rl.setPrompt("> ");
 rl.prompt();
@@ -30,16 +47,10 @@ rl.on("line", function(line) {
   var command = COMMANDS[args.shift().toUpperCase()];
 
   if (typeof db[command] === "function" && db[command].length === args.length) {
-    var result = db[command].apply(db, args);
-    if (result !== undefined) {
-      console.log(result);
-    }
+    executeCommand(command, args);
   }
   else if (command === COMMANDS.HELP) {
-    console.log("Available commands:");
-    for (var key in COMMANDS) {
-      console.log(key);
-    }
+    printHelp();
   }
   else if (command === COMMANDS.END) {
     rl.close();

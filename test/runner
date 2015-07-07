@@ -9,7 +9,7 @@
 
 var fs = require("fs");
 var path = require("path");
-var ThumbtackDB = require("../lib/ThumbtackDB.js");
+var ThumbtackDB = require("../lib/ThumbtackDBMS.js");
 
 var testCasesDir = path.join(__dirname, "cases");
 
