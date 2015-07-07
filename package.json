@@ -1,0 +1,20 @@
+{
+  "name": "thumbtackdb",
+  "version": "1.0.0",
+  "description": "A very simple in-memory database.",
+  "private": "true",
+  "main": "index.js",
+  "scripts": {
+    "thumbtack": "bin/thumbtack",
+    "test": "test/runner"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/stevevis/thumbtackdb"
+  },
+  "author": "Steve Viselli",
+  "bugs": {
+    "url": "https://github.com/stevevis/thumbtackdb/issues"
+  },
+  "homepage": "https://github.com/stevevis/thumbtackdb"
+}

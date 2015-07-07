@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+/**
+ * Very simple interactive CLI for ThumbtackDB. Would have been nice to use https://github.com/SBoudrias/Inquirer.js/
+ * but I'm trying to avoid introducing dependencies to make running this package easier.
+ */
+
+"use strict";
+
+var readline = require("readline");
+var ThumbtackDB = require("../lib/ThumbtackDB.js");
+
+var rl = readline.createInterface(process.stdin, process.stdout);
+var db = new ThumbtackDB();
+
+var COMMANDS = {
+  "SET": "set",
+  "GET": "get",
+  "UNSET": "unset",
+  "NUMEQUALTO": "numEqualTo",
+  "HELP": "help",
+  "END": "end"
+};
+
+rl.setPrompt("> ");
+rl.prompt();
+
+rl.on("line", function(line) {
+  var args = line.split(" ");
+  var command = COMMANDS[args.shift().toUpperCase()];
+
+  if (typeof db[command] === "function" && db[command].length === args.length) {
+    var result = db[command].apply(db, args);
+    if (result !== undefined) {
+      console.log(result);
+    }
+  }
+  else if (command === COMMANDS.HELP) {
+    console.log("Available commands:");
+    for (var key in COMMANDS) {
+      console.log(key);
+    }
+  }
+  else if (command === COMMANDS.END) {
+    rl.close();
+  }
+  else {
+    console.log("Unknown command, enter HELP for available commands");
+  }
+
+  rl.prompt();
+}).on("close", function() {
+  process.exit();
+});

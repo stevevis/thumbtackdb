@@ -1,0 +1,53 @@
+#!/usr/bin/env node
+
+/**
+ * Super simple test runner that runs test cases defined in JSON files. I would usually use something like Mocha and
+ * Chai but I'm trying not to introduce any dependencies to make running this package easier.
+ */
+
+"use strict";
+
+var fs = require("fs");
+var path = require("path");
+var ThumbtackDB = require("../lib/ThumbtackDB.js");
+
+var testCasesDir = path.join(__dirname, "cases");
+
+/**
+ * Execute a series of tests against a ThumbtackDB object. A test consists of a command and optional arguments array
+ * and expected output.
+ */
+function executeTestCase(name, steps) {
+  console.log("Executing test case: " + name);
+
+  var db = new ThumbtackDB();
+  var failed = false;
+
+  for (var i = 0; i < steps.length; i++) {
+    var command = steps[i].command;
+    var args = steps[i].args;
+
+    if (typeof db[command] === "function" && db[command].length === args.length) {
+      var output = db[command].apply(db, steps[i].args);
+      if (output !== steps[i].output) {
+        console.log("Error on command [" + (i + 1) + "] - expected output " + steps[i].output +
+          " did not match actual output " + output);
+        failed = true;
+      }
+    }
+  }
+
+  console.log("Test case " + (failed ? "failed!" : "passed!"));
+}
+
+/**
+ * Read the contents of each test file, parse it into JSON and run executeTestCase on it.
+ */
+function readTestCases(testCaseFiles) {
+  for (var i = 0; i < testCaseFiles.length; i++) {
+    var steps = fs.readFileSync(path.join(testCasesDir, testCaseFiles[i]), "utf8");
+    executeTestCase(testCaseFiles[i], JSON.parse(steps));
+  }
+}
+
+readTestCases(fs.readdirSync(testCasesDir));

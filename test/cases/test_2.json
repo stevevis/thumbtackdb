@@ -1,0 +1,34 @@
+[
+  {
+    "command": "set",
+    "args": [ "a", 10 ]
+  },
+  {
+    "command": "set",
+    "args": [ "b", 10 ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 2
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 2
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 20 ],
+    "output": 0
+  },
+  {
+    "command": "set",
+    "args": [ "b", 30 ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 1
+  }
+]

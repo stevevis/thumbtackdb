@@ -1,0 +1,20 @@
+[
+  {
+    "command": "set",
+    "args": [ "ex", 10 ]
+  },
+  {
+    "command": "get",
+    "args": [ "ex" ],
+    "output": 10
+  },
+  {
+    "command": "unset",
+    "args": [ "ex" ]
+  },
+  {
+    "command": "get",
+    "args": [ "ex" ],
+    "output": "NULL"
+  }
+]
