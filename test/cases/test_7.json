@@ -1,0 +1,64 @@
+[
+  {
+    "command": "set",
+    "args": [ "a", 20 ]
+  },
+  {
+    "command": "set",
+    "args": [ "a", 10 ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 20 ],
+    "output": 0
+  },
+  {
+    "command": "set",
+    "args": [ "c", 10 ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 2
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "set",
+    "args": [ "b", 20 ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 2
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 20 ],
+    "output": 1
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+    {
+    "command": "set",
+    "args": [ "c", 30 ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 1
+  },
+  {
+    "command": "rollback",
+    "args": []
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ 10 ],
+    "output": 2
+  }
+]

@@ -1,0 +1,63 @@
+[ 
+  {
+    "command": "set",
+    "args": [ "a", "hello" ]
+  },
+  {
+    "command": "unset",
+    "args": [ "a" ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ "hello" ],
+    "output": 0
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "set",
+    "args": [ "a", "hello" ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ "hello" ],
+    "output": 1
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "unset",
+    "args": [ "a" ]
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ "hello" ],
+    "output": 0
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "set",
+    "args": [ "b", "hello" ]
+  },
+  {
+    "command": "commit",
+    "args": []
+  },
+  {
+    "command": "get",
+    "args": [ "b" ],
+    "output": "hello"
+  },
+  {
+    "command": "numEqualTo",
+    "args": [ "hello" ],
+    "output": 1
+  }
+]

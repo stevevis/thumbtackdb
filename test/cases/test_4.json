@@ -1,16 +1,11 @@
 [
   {
-    "command": "set",
-    "args": [ "a", 10 ]
+    "command": "begin",
+    "args": []
   },
   {
     "command": "set",
-    "args": [ "c", 10 ]
-  },
-  {
-    "command": "numEqualTo",
-    "args": [ 10 ],
-    "output": 2
+    "args": [ "a", 30 ]
   },
   {
     "command": "begin",
@@ -18,38 +13,20 @@
   },
   {
     "command": "set",
-    "args": [ "b", 20 ]
+    "args": [ "a", 40 ]
   },
   {
-    "command": "numEqualTo",
-    "args": [ 10 ],
-    "output": 2
-  },
-  {
-    "command": "numEqualTo",
-    "args": [ 20 ],
-    "output": 1
-  },
-  {
-    "command": "begin",
+    "command": "commit",
     "args": []
   },
-    {
-    "command": "set",
-    "args": [ "c", 30 ]
-  },
   {
-    "command": "numEqualTo",
-    "args": [ 10 ],
-    "output": 1
+    "command": "get",
+    "args": [ "a" ],
+    "output": 40
   },
   {
     "command": "rollback",
-    "args": []
-  },
-  {
-    "command": "numEqualTo",
-    "args": [ 10 ],
-    "output": 2
+    "args": [],
+    "output": "NO TRANSACTION"
   }
 ]

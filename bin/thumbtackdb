@@ -19,6 +19,7 @@ var COMMANDS = {
   "NUMEQUALTO": "numEqualTo",
   "BEGIN": "begin",
   "ROLLBACK": "rollback",
+  "COMMIT": "commit",
   "HELP": "help",
   "END": "end"
 };

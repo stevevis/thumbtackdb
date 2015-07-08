@@ -17,3 +17,17 @@ A very simple in-memory database that supports the following commands:
 * ROLLBACK – Undo all of the commands issued in the most recent transaction block, and close the block. Print nothing if successful, or print NO TRANSACTION if no transaction is in progress.
 
 * COMMIT – Close all open transaction blocks, permanently applying the changes made in them. Print nothing if successful, or print NO TRANSACTION if no transaction is in progress.
+
+## Instructions
+
+Install a recent version of Node.js (or io.js) and clone this package to a local directory:
+
+`git clone https://github.com/stevevis/thumbtackdb.git`
+
+Run the interactive command line with:
+
+`npm run thumbtackdb`
+
+Run the test suite with:
+
+`npm run test`

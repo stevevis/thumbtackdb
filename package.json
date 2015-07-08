@@ -5,7 +5,7 @@
   "private": "true",
   "main": "index.js",
   "scripts": {
-    "thumbtack": "bin/thumbtack",
+    "thumbtackdb": "bin/thumbtackdb",
     "test": "test/runner"
   },
   "repository": {

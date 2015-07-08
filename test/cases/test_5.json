@@ -1,0 +1,50 @@
+[
+  {
+    "command": "set",
+    "args": [ "a", 50 ]
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": 50
+  },
+  {
+    "command": "set",
+    "args": [ "a", 60 ]
+  },
+  {
+    "command": "begin",
+    "args": []
+  },
+  {
+    "command": "unset",
+    "args": [ "a" ]
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": "NULL"
+  },
+  {
+    "command": "rollback",
+    "args": []
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": 60
+  },
+  {
+    "command": "commit",
+    "args": []
+  },
+  {
+    "command": "get",
+    "args": [ "a" ],
+    "output": 60
+  }
+]
