@@ -31,3 +31,7 @@ Run the interactive command line with:
 Run the test suite with:
 
 `npm run test`
+
+## Implementation Details
+
+This database is built on a hash map. There are much more efficient data structures for building main memory databases including T-Trees (http://www.vldb.org/conf/1986/P294.PDF), B-Trees, and CSS-Trees (http://www.vldb.org/conf/1999/P7.pdf). However, this whole project is only supposed to take 30-90 minutes to build and I don't like my chances of researching and implementing a more advanced data structure in that time. So I went with the simplest solution I could think of.
